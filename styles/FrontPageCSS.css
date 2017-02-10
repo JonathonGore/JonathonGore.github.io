@@ -1,0 +1,85 @@
+@font-face { font-family: CaviarDreams; 
+		     font-weight: bold; 
+			 src: url('CaviarDreams.ttf');
+			}
+
+
+.title {
+	font-family: CaviarDreams;
+	font-size: 500%;
+	text-align: center;
+	letter-spacing: 3px;
+}
+
+.projectheader {
+	font-family: CaviarDreams;
+	font-weight: bold;
+	font-size: 175%;
+	line-height: 125%;
+	margin-left: 5%;
+	
+}
+
+.projectsrc {
+	font-family: CaviarDreams;
+	margin-left: 5%;
+	color:#c66;
+}
+
+.CommanderImage {
+	size: 50%;
+}
+
+.menubar {
+	/*
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    */	
+	border:1px solid #ccc;
+    border-width:1px 0;
+    list-style:none;
+    margin:0;
+    padding:0;
+    text-align:center;
+	
+}
+
+.menubar li{
+	
+	display:inline;
+	
+}
+
+.menubar a{
+	color:#c66;	
+	display:inline-block;
+    padding:10px;
+}
+
+.projectcontent {
+	font-family: CaviarDreams;
+    font-size: 125%;
+	margin-left: 8%;
+    margin-right: 8%;
+
+}
+
+
+
+.content {
+    font-family: CaviarDreams;
+    font-size: 150%;
+    color: "#999999";
+    font-weight: 400;
+    margin-left: 13%;
+    margin-right: 13%;
+}
+a{
+	text-decoration:none;
+	font-weight:bold;
+}
+a:hover{
+	text-decoration:underline;
+}
+
