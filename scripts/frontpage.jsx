@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Navbar, Nav, NavItem, } from 'react-bootstrap';
+var FontAwesome = require('react-fontawesome');
 
 var rootElement =
   React.createElement(Navbar, {},
@@ -11,9 +12,12 @@ var rootElement =
         ),
         React.createElement(Navbar.Collapse, {},
             React.createElement(Nav, { pullRight: true },
-                React.createElement(NavItem, {},
-                    //React.createElement(Icon, { name: "spinner"})
-                    "hi"
+                React.createElement(NavItem, {
+                    href: "https://github.com/JonathonGore",
+                    target: "_blank"
+                },
+                        React.createElement(FontAwesome, {name: 'github', size: '2x'}),
+                        React.createElement('div', {className: "nav-item-text"}, "Github")
                 )
             )
         )
