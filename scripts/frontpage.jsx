@@ -5,20 +5,22 @@ var FontAwesome = require('react-fontawesome');
 
 var rootElement =
   React.createElement(Navbar, {},
-        React.createElement(Navbar.Header, {},
-            React.createElement(Navbar.Brand, {},
-                React.createElement('a', { href: "index.html#"}, "Home")
+        React.createElement(Nav, {},
+            React.createElement(NavItem, {
+                href: "index.html#",
+                target: "_blank"
+            },
+                    React.createElement(FontAwesome, {name: 'home', size: '2x'}),
+                    React.createElement('div', {className: "nav-item-text"}, "Home")
             )
         ),
-        React.createElement(Navbar.Collapse, {},
-            React.createElement(Nav, { pullRight: true },
-                React.createElement(NavItem, {
-                    href: "https://github.com/JonathonGore",
-                    target: "_blank"
-                },
-                        React.createElement(FontAwesome, {name: 'github', size: '2x'}),
-                        React.createElement('div', {className: "nav-item-text"}, "Github")
-                )
+        React.createElement(Nav, { pullRight: true },
+            React.createElement(NavItem, {
+                href: "https://github.com/JonathonGore",
+                target: "_blank"
+            },
+                    React.createElement(FontAwesome, {name: 'github', size: '2x'}),
+                    React.createElement('div', {className: "nav-item-text"}, "Github")
             )
         )
   )
