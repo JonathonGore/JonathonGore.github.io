@@ -16,7 +16,8 @@
 	padding-right: 0;
 }
 
-.projects-body {
+.projects-body,
+.padded-icon {
 	padding: 0 6px;
 }
 

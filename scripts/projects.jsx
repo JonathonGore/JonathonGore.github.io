@@ -3,11 +3,16 @@ import ReactDOM from 'react-dom';
 import { MenuBar } from './views.jsx';
 import { Col, Image, Row, } from 'react-bootstrap';
 
+var FontAwesome = require('react-fontawesome');
+
 var rootElement =
 React.createElement('div', {},
     React.createElement(MenuBar, {}),
     React.createElement('div', {className: "projects-body"},
-        React.createElement('h3', {className: "title"}, "Projects"),
+        React.createElement('h2', {className: "title"},
+            "Projects",
+            React.createElement(FontAwesome, {name: 'code', className: 'padded-icon'})
+        ),
         React.createElement('div', {className: "project-header"}, "Commander"),
         React.createElement('div', {className: "project-src"},
             React.createElement('a', {
