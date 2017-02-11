@@ -25,6 +25,15 @@
 	width: 99%;
 }
 
+.projects-body a {
+	color: #333333;
+}
+
+.projects-body a:hover {
+	color: #777777;
+	text-decoration: none;
+}
+
 div.container > ul.nav > li.no-left-padding > a {
 	padding-left: 0;
 }
