@@ -1,0 +1,29 @@
+.nav .nav-item-text {
+	margin-bottom: 10px;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.nav .fa {
+	margin: 0 6px;
+}
+
+.navbar > .container {
+	width: 99%;
+}
+
+.nav .last-item {
+	padding-right: 0;
+}
+
+.projects-body {
+	padding: 0 6px;
+}
+
+.projects-body img {
+	width: 99%;
+}
+
+div.container > ul.nav > li.no-left-padding > a {
+	padding-left: 0;
+}
