@@ -4,6 +4,10 @@
 	display: inline-block;
 }
 
+.hidden {
+	display: none;
+}
+
 .nav .fa {
 	margin: 0 6px;
 }
@@ -21,8 +25,13 @@
 	padding: 0 6px;
 }
 
-.projects-body img {
+.three-panel img {
 	width: 99%;
+	height: 246.66px;
+}
+
+.four-panel img {
+	width: 100%;
 }
 
 .projects-body a {
