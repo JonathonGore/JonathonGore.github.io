@@ -4,7 +4,6 @@ import { Col, Image, Row, } from 'react-bootstrap';
 import { ControlLabel, FormControl, FormGroup, Button, } from 'react-bootstrap';
 var FontAwesome = require('react-fontawesome');
 
-
 function createCORSRequest(method, url) {
   var xhr = new XMLHttpRequest();
   if ("withCredentials" in xhr) {
@@ -29,11 +28,37 @@ function createCORSRequest(method, url) {
   return xhr;
 }
 
+export class Message extends React.Component {
+     constructor(props) {
+         super(props);
+         this.state = {
+             msg: props.msg,
+             type: props.type,
+             key: 0
+         };
+     }
+
+     render() {
+         return (
+             React.createElement('div', {},
+                React.createElement('div', {
+                    className: this.state.type + " chat-msg"
+                },
+                    React.createElement('p', {}, this.state.msg)
+                ),
+                React.createElement('div', {className: "clear"})
+            )
+         );
+     }
+ }
+
 export class Messager extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            msg: ""
+            msg: "",
+            messages: [],
+            count: 2
         };
         self = this;
     }
@@ -41,8 +66,7 @@ export class Messager extends React.Component {
     sendMessage(message){
         var url = "http://localhost:9000/message";
         var params = "msg=" + self.state.msg + "&id=d59beb20-5a7e-4be0-9bc5-73306f255920";
-
-
+        console.log("Params = " + params);
         var xhr = createCORSRequest('POST', url);
         if (!xhr) {
           throw new Error('CORS not supported');
@@ -51,6 +75,16 @@ export class Messager extends React.Component {
         // When the request successfully completes
         xhr.onload = function() {
             var responseText = xhr.responseText;
+            self.setState((prevState, props) => ({
+                messages: prevState.messages.concat(
+                    React.createElement(Message, {
+                        key: prevState.count,
+                        type: "chatbot-msg",
+                        msg: responseText
+                    })
+                ),
+                count: prevState.count + 1
+            }));
             console.log(responseText);
         };
 
@@ -58,29 +92,46 @@ export class Messager extends React.Component {
         xhr.onerror = function() {
             console.log('There was an error!');
         };
-
         //xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
         xhr.send(params);
-    }
 
-    textChange(message) {
-        self.setState({
-            msg: message.target.value
-        });
-        console.log(self.state.msg);
+        self.setState((prevState, props) => ({
+            messages: prevState.messages.concat(
+                React.createElement(Message, {
+                    key: prevState.count,
+                    type: "user-msg",
+                    msg: prevState.msg
+                })
+            ),
+            count: prevState.count + 1
+        }));
     }
 
     render() {
         return (
-            React.createElement(ControlLabel, {}, "Enter your message below:",
-                React.createElement('span', {},
-                    React.createElement(FormControl, {
-                        type: "text",
-                        id: "message-box",
-                        onChange: this.textChange
-                    }),
-                    React.createElement(Button, {type: "submit", onClick: this.sendMessage}, "Send")
+            React.createElement('div', {className: "message-container"},
+                React.createElement('section', {
+                    className: 'chat-area',
+                    id: "chat-area"
+                }, this.state.messages),
+                React.createElement(ControlLabel, {}, "Enter your message below:"),
+                React.createElement(Row, {},
+                    React.createElement(Col, {md: 10, id: "r-inner-padding"},
+                        React.createElement(FormControl, {
+                            type: "text",
+                            id: "message-box",
+                            onChange: function(event) {
+                                self.setState({msg: event.target.value});
+                            }
+                        })
+                    ),
+                    React.createElement(Col, {md: 2, id: "l-inner-padding"},
+                        React.createElement(Button, {
+                            type: "submit",
+                            onClick: this.sendMessage,
+                            id: "submit-button"
+                        }, "Send")
+                    )
                 )
             )
         );
