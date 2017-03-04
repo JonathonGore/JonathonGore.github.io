@@ -44,6 +44,10 @@
 	line-height: 24px;
 }
 
+.chat-area p {
+	margin: 0;
+}
+
 .clear {
 	clear: both;
 }

@@ -7,23 +7,17 @@ var FontAwesome = require('react-fontawesome');
 function createCORSRequest(method, url) {
   var xhr = new XMLHttpRequest();
   if ("withCredentials" in xhr) {
-
     // Check if the XMLHttpRequest object has a "withCredentials" property.
     // "withCredentials" only exists on XMLHTTPRequest2 objects.
     xhr.open(method, url, true);
-
   } else if (typeof XDomainRequest != "undefined") {
-
     // Otherwise, check if XDomainRequest.
     // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
     xhr = new XDomainRequest();
     xhr.open(method, url);
-
   } else {
-
     // Otherwise, CORS is not supported by the browser.
     xhr = null;
-
   }
   return xhr;
 }
@@ -34,7 +28,7 @@ export class Message extends React.Component {
          this.state = {
              msg: props.msg,
              type: props.type,
-             key: 0
+             key: 1
          };
      }
 
@@ -57,16 +51,20 @@ export class Messager extends React.Component {
         super(props);
         this.state = {
             msg: "",
-            messages: [],
-            count: 2
+            messages: [React.createElement(Message, {
+                key: 0,
+                type: "chatbot-msg",
+                msg: "Hey there, who are you?"
+            })],
+            count: 2,
+            id: props.id
         };
         self = this;
     }
 
     sendMessage(message){
         var url = "http://localhost:9000/message";
-        var params = "msg=" + self.state.msg + "&id=d59beb20-5a7e-4be0-9bc5-73306f255920";
-        console.log("Params = " + params);
+        var params = "msg=" + self.state.msg + "&id=" + self.state.id;
         var xhr = createCORSRequest('POST', url);
         if (!xhr) {
           throw new Error('CORS not supported');

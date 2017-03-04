@@ -3,6 +3,15 @@ import ReactDOM from 'react-dom';
 import { MenuBar, Messager, } from './views.jsx';
 import { Col, Image, Row, } from 'react-bootstrap';
 
+function guid() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+    s4() + '-' + s4() + s4() + s4();
+}
 
 var description = "My name is Jonathon Gore, or if you want you can call me Jack." +
                   " I am a second year student studying computer science at the" +
@@ -20,7 +29,7 @@ var rootElement = React.createElement('div', {},
             React.createElement('div', {className: "text-area"}, description)
         ),
         React.createElement(Col, {md: 7},
-            React.createElement(Messager, {})
+            React.createElement(Messager, {id: guid()})
         )
     )
 );
