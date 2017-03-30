@@ -5,13 +5,15 @@ import { MenuBar, threePanelView, fourPanelView } from './views.jsx';
 
 var FontAwesome = require('react-fontawesome');
 
-var commanderDescription = "Commander is a 2D sidescrolling adventure desktop application designed and " +
-"built by me. The user controls the character while trying to kill enemies and collect as many coins as possible. " +
-"The game allows a full range of motion including the ability to jump onto enemies." +
-"Commander was written a period of a few months, and completed in " +
-"early 2015. It is written in Java and makes use of Java's Swing library. In addition " +
-"I implemented simple animation into my game, to make it look more appealing. " +
-"Commander also allows users to save highscores locally."
+var commanderDescription = "Quadris is desktop tetris game written for my CS246 class at the University of Waterloo." +
+"it is written in C++, making use of the X11 graphics library. Throughout the project " +
+"many common design patterns are used, such as the observer and factory pattern." +
+" Making use of such patterns made for reuasble and extensible modularized code." +
+"The feature of this project I am most proud of is the hint system. The hint system works " +
+"By analyzing the placement of blocks on the screen and from that determining the ideal " +
+"place to drop the next block. The hint given by the computer is illustrated by a black block " +
+"The appears temporarily on the screen. It can be seen in the images accompanying this text." +
+" The source code for this project can be made available to potential employers upon request."
 
 var rootElement =
 React.createElement('div', {},

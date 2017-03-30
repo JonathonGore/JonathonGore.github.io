@@ -33,7 +33,7 @@
 	height: 350px;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	padding: 0 10px;
+	padding: 2px 10px;
 	border-radius: 4px;
 	border-color: #ccc
 }
@@ -132,11 +132,17 @@ div.chatbot-msg:after {
 	width: 100%;
 }
 
-.projects-body a {
+.projects-body a,
+.chatbot-display a {
 	color: #333333;
 }
 
-.projects-body a:hover {
+.chatbot-display .project-header {
+	margin-top: 0;
+}
+
+.projects-body a:hover,
+.chatbot-display a:hover {
 	color: #777777;
 	text-decoration: none;
 }

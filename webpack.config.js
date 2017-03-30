@@ -5,14 +5,10 @@ var BUILD_DIR = path.resolve(__dirname, 'artifacts');
 var APP_DIR = path.resolve(__dirname, 'scripts');
 
 var config = {
- // entry: APP_DIR + '/frontpage.jsx',
- // output: {
-//	path: BUILD_DIR,
-//	filename: 'bundle.js'
- // },
   entry: {
     front: APP_DIR + '/frontpage.jsx',
-    projects: APP_DIR + '/projects.jsx'
+    projects: APP_DIR + '/projects.jsx',
+    blog: APP_DIR + '/blog.jsx'
   },
   output: {
     path: BUILD_DIR,

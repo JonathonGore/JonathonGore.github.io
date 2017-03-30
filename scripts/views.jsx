@@ -63,7 +63,7 @@ export class Messager extends React.Component {
     }
 
     sendMessage(message){
-        var url = "http://localhost:9000/message";
+        var url = "http://138.197.149.119:9000/message";
         var params = "msg=" + self.state.msg + "&id=" + self.state.id;
         var xhr = createCORSRequest('POST', url);
         if (!xhr) {
@@ -250,6 +250,12 @@ export class MenuBar extends React.Component {
                             React.createElement(FontAwesome, {name: 'code', size: '2x'}),
                             React.createElement('div', {className: "nav-item-text"}, "Projects")
                     ),
+                    //React.createElement(NavItem, {
+                    //    href: "Blog.html"
+                    //},
+                    //        React.createElement(FontAwesome, {name: ' fa-pencil-square-o', size: '2x'}),
+                    //        React.createElement('div', {className: "nav-item-text"}, "Blog")
+                    //),
                     React.createElement(NavItem, {
                         href: "https://github.com/JonathonGore",
                         target: "_blank"
